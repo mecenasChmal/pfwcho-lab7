@@ -1,0 +1,11 @@
+sudo: required
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t mecenaschmal/lab7 -f Dockerfile.dev1 .
+
+script:
+  - docker run -e CI=true mecenaschmal/lab7 npm run test
